@@ -16,21 +16,26 @@
         <div class="signin-signup">
           <form action="#" class="sign-in-form">
             <h2 class="title">Entrar</h2>
+            <div class="input-field-error">
+              <p>E-mail ou senha estão incorretos!</p>
+            </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="email" placeholder="E-mail" />
+              <input type="email" id="email" placeholder="E-mail" required />
             </div>
-            <div class="input-field">
+            <div class="input-field-password input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Senha" />
+              <input type="password" id="password" placeholder="Senha" required />
+              <i class="fas fa-eye-slash" id="eyeIcon" onclick="toggleEye()"></i>
             </div>
-            <input type="submit" value="entrar" class="btn solid" />
+            <a href="#">Esqueci minha senha</a>
+            <input type="submit" value="entrar" id="login-button" class="btn solid" />
           </form>
           <form action="#" class="sign-up-form">
             <h2 class="title">Cadastro de Usuário</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Nome de usuário" />
+              <input type="text" placeholder="Nome" />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
@@ -76,6 +81,7 @@
     </div>
 
     <script src="app.js"></script>
+    <script src="validate.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth-compat.js"></script>
     <script>

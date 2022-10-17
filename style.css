@@ -46,6 +46,16 @@ input {
   z-index: 5;
 }
 
+.signin-signup .sign-in-form a{
+  text-decoration: none;
+  color: rgb(158, 158, 158);
+  margin-bottom:2%;
+}
+
+.signin-signup .sign-in-form a:hover{
+  color: #444;
+}
+
 form {
   display: flex;
   align-items: center;
@@ -84,6 +94,38 @@ form.sign-in-form {
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
   position: relative;
+}
+
+.input-field-password {
+  max-width: 380px;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.fa-eye-slash{
+  cursor: pointer;
+}
+
+.input-field-error {
+  max-width: 380px;
+  width: 100%;
+  border: 1px solid red;
+  color: red;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  display: none;
 }
 
 .input-field i {
