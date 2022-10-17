@@ -18,7 +18,7 @@
             <h2 class="title">Entrar</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Nome de usuário" />
+              <input type="email" placeholder="E-mail" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
@@ -76,5 +76,27 @@
     </div>
 
     <script src="app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyA6WixYa42PPJTZT-fPWuR_aeJSHnZMNdQ",
+        authDomain: "reread-2aedc.firebaseapp.com",
+        projectId: "reread-2aedc",
+        storageBucket: "reread-2aedc.appspot.com",
+        messagingSenderId: "770467559344",
+        appId: "1:770467559344:web:b959110c6548cf177c4875"
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      console.log('antes');
+      firebase.auth().signInWithEmailAndPassword("rubens.jr107@gmail.com","123456").then(response => {
+        console.log('success', response);
+      }).catch(error => {
+        console.log('error', error);
+      });
+      console.log('depois');
+    </script>
+
   </body>
 </html>
