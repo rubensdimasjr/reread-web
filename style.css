@@ -109,7 +109,7 @@ form.sign-in-form {
   position: relative;
 }
 
-.fa-eye-slash{
+.input-field-password i{
   cursor: pointer;
 }
 
