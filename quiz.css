@@ -36,6 +36,10 @@ textarea:focus, input:focus {
     }
 
 /* Mark input boxes that gets an error on validation: */
+#error{
+  display: none;
+}
+
 #error.input-field-error {
   max-width: 380px;
   text-align: center;

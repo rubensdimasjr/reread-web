@@ -12,7 +12,7 @@
     <form action="#" id="formQuiz">
         <h2 class="title">Quiz</h2>
         <div id="error">
-          Responda todas a perguntas!
+          Responda todas as perguntas!
         </div>
         <div class="tab">1 - Você está confortável com seu nível de didática em sala de aula?
           <p>
@@ -110,6 +110,7 @@
             !y[i].checked ? contador++ : '';
             if (contador > 4) {
               // add an "invalid" class to the field:
+              error.style.display = "block";
               error.classList.add('input-field-error');
               // and set the current valid status to false
               valid = false;
@@ -118,6 +119,7 @@
           // If the valid status is true, mark the step as finished and valid:
           if (valid) {
             document.getElementsByClassName("step")[currentTab].className += " finish";
+            error.style.display = "none";
             error.classList.remove('input-field-error');
           }
           return valid; // return the valid status
