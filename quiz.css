@@ -36,8 +36,8 @@ textarea:focus, input:focus {
     }
 
 /* Mark input boxes that gets an error on validation: */
-.input-field-error {
-  width: 380px;
+#error.input-field-error {
+  max-width: 380px;
   text-align: center;
   border: 1px solid red;
   color: red;
@@ -46,7 +46,6 @@ textarea:focus, input:focus {
   height: 40px;
   border-radius: 55px;
   transition: 0.3s;
-  display: none;
 }
 
 /* Hide all steps by default: */
