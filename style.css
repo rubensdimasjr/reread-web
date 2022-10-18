@@ -121,9 +121,6 @@ form.sign-in-form {
   margin: 10px 0;
   height: 55px;
   border-radius: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: 0.3s;
   display: none;
 }

@@ -11,10 +11,21 @@
 <body>
     <form action="#" id="formQuiz">
         <h2 class="title">Quiz</h2>
-        <div class="tab">Name:
-          <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
-          Teste:
-          <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+        <div class="input-field-error">
+          Responda todas a perguntas!
+        </div>
+        <div class="tab">1 - Você está confortável com seu nível de didática em sala de aula?
+          <p>
+            <input type="radio" oninput="this.className = ''" name="question1" value="sim">Sim
+            <input type="radio" oninput="this.className = ''" name="question1" value="parcialmente">Parcialmente
+            <input type="radio" oninput="this.className = ''" name="question1" value="nao">Não
+          </p>
+          2 - O seu bem estar está impactando diretamente o seu desempenho no trabalho?
+          <p>
+            <input type="radio" oninput="this.className = ''" name="question2" value="sim">Sim
+            <input type="radio" oninput="this.className = ''" name="question2" value="parcialmente">Parcialmente
+            <input type="radio" oninput="this.className = ''" name="question2" value="nao">Não
+          </p>
         </div>
         <div class="tab">Contact Info:
           <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
@@ -90,12 +101,14 @@
           var x, y, i, valid = true;
           x = document.getElementsByClassName("tab");
           y = x[currentTab].getElementsByTagName("input");
+          contador = 0;
           // A loop that checks every input field in the current tab:
           for (i = 0; i < y.length; i++) {
             // If a field is empty...
-            if (y[i].value == "") {
+            !y[i].checked ? contador++ : '';
+            if (contador > 4) {
               // add an "invalid" class to the field:
-              y[i].className += " invalid";
+              document.querySelector('.input-field-error').style.display = "block";
               // and set the current valid status to false
               valid = false;
             }
