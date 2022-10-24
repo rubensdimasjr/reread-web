@@ -14,7 +14,7 @@ background: #9D61F0;
 
 #formQuiz{
     margin: 100px auto;
-    padding: 40px;
+    padding: 25px;
     width: 50%;
     min-width: 400px;
     border-radius: 10px;
@@ -65,8 +65,15 @@ textarea:focus, input:focus {
   }
 
   .wrapper-tab{
+    text-align: center;
     border-radius: 10px;
-    background: #F6F1FE;
+    background: #f3f3f3c5;
+    margin-bottom: 1rem;
+  }
+
+  .wrapper-tab .tab-text{
+    padding: 1rem 1rem;
+    font-weight: 600;
   }
   
   button {
