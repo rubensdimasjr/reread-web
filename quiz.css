@@ -9,6 +9,7 @@ box-sizing: border-box;
 body,
 input {
 font-family: "Poppins", sans-serif;
+background: #9D61F0;
 }
 
 #formQuiz{
@@ -16,6 +17,9 @@ font-family: "Poppins", sans-serif;
     padding: 40px;
     width: 50%;
     min-width: 400px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .title {
@@ -58,6 +62,11 @@ textarea:focus, input:focus {
 .tab {
     display: none;
 
+  }
+
+  .wrapper-tab{
+    border-radius: 10px;
+    background: #F6F1FE;
   }
   
   button {
