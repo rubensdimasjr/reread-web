@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body,
+input {
+font-family: "Poppins", sans-serif;
+background: #9D61F0;
+}
+
+#formQuiz{
+    margin:0  auto;
+    margin-top: 100px;
+    padding: 25px;
+    width: 50%;
+    min-width: 400px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.title {
+    font-size: 2.2rem;
+    color: #444;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+.intro-text{
+  margin-bottom: 5%;
+}
+
+.wrapper-container{
+  display: inline-flex;
+}
+
+.wrapper-container .card{
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  margin: 1rem;
+  background-color: #FFBE0B;
+}
