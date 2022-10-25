@@ -15,6 +15,7 @@ background: #9D61F0;
 #formQuiz{
     margin:0  auto;
     margin-top: 100px;
+    margin-bottom: 100px;
     padding: 25px;
     width: 50%;
     min-width: 400px;
@@ -32,17 +33,43 @@ background: #9D61F0;
 
 
 .intro-text{
-  margin-bottom: 5%;
+  margin-bottom: 3rem;
 }
 
 .wrapper-container{
-  display: inline-flex;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .wrapper-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .wrapper-container { grid-template-columns: repeat(3, 1fr); }
 }
 
 .wrapper-container .card{
-  width: 200px;
-  height: 200px;
-  border-radius: 5px;
-  margin: 1rem;
   background-color: #FFBE0B;
+  border-radius: 10px;
+  color: #F6F1FE;
+  cursor: pointer;
+  padding: 1rem;
+  height: 200px;
+}
+
+.card i{
+  display: flex;
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 100px;
+  justify-content: center;
+}
+
+.card p{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top:1rem ;
 }

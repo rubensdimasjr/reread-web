@@ -15,6 +15,7 @@ background: #9D61F0;
 #formQuiz{
     margin:0  auto;
     margin-top: 100px;
+    margin-bottom: 100px;
     padding: 25px;
     width: 50%;
     min-width: 400px;
