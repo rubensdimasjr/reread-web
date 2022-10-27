@@ -51,12 +51,16 @@ background: #9D61F0;
 }
 
 .wrapper-container .card{
-  background-color: #FFBE0B;
+  background-color: #8338EC;
   border-radius: 10px;
   color: #F6F1FE;
   cursor: pointer;
   padding: 1rem;
   height: 200px;
+}
+
+.wrapper-container .card:hover{
+  opacity: .9;
 }
 
 .card i{
