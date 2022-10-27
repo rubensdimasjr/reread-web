@@ -227,19 +227,8 @@
           currentTab = currentTab + n;
           // if you have reached the end of the form...
           if (currentTab >= x.length) {
-            // ... the form gets submitted:
-
-            /* var request = new XMLHttpRequest();
-            request.open('POST', 'https://httpbin.org/post',false);
-
-            const data = new FormData(document.getElementById('formQuiz'));
-            request.send(data);
-
-            console.log(request.response); */
 
             const formData = new FormData(document.getElementById('formQuiz'));
-            
-            const qtd = [];
             
             for(const [key,value] of formData){
               var pontos = 0;
@@ -267,8 +256,13 @@
               return soma;
             },[]);
 
-            console.log(novaLista);
+            novaLista.sort(function(a,b) {
+              if(a.pontos < b.pontos) return 1;
+              if(a.pontos > b.pontos) return -1;
+              return 0;
+            });
             
+            console.log(novaLista);
             
           }
           // Otherwise, display the correct tab:
