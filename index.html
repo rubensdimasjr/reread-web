@@ -14,22 +14,22 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+          <form class="sign-in-form">
             <h2 class="title">Entrar</h2>
             <div class="input-field-error">
               <p>E-mail ou senha estão incorretos!</p>
             </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="email" id="email" placeholder="E-mail" required />
+              <input type="email" id="email" onkeyup="validateFields()" placeholder="E-mail"/>
             </div>
             <div class="input-field-password input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" id="password" placeholder="Senha" required />
+              <input type="password" id="password" onkeyup="validateFields()" placeholder="Senha" />
               <i class="fas fa-eye-slash" id="eyeIcon"></i>
             </div>
             <a href="forgot.html">Esqueci minha senha</a>
-            <input type="submit" value="entrar" id="login-button" class="btn solid" />
+            <button type="button" id="login-button" class="btn solid" onclick="login()" disabled>Entrar</button>
           </form>
           <form action="#" class="sign-up-form">
             <h2 class="title">Cadastro de Usuário</h2>
@@ -45,7 +45,7 @@
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Senha" required />
             </div>
-            <input type="submit" class="btn" value="Cadastrar" />
+            <button type="button"  class="btn" onclick="signup()" disabled>Cadastrar</button>
           </form>
         </div>
       </div>
@@ -95,13 +95,60 @@
       };
       firebase.initializeApp(firebaseConfig);
 
-      console.log('antes');
-      firebase.auth().signInWithEmailAndPassword("rubens.jr107@gmail.com","123456").then(response => {
-        console.log('success', response);
-      }).catch(error => {
-        console.log('error', error);
-      });
-      console.log('depois');
+      function validateFields(){
+        const emailValid = isEmailValid();
+        const passwordValid = isPasswordValid();
+        form.loginButton().disabled = !emailValid || !passwordValid;
+      }
+
+      function isEmailValid(){
+        const email = form.email().value;
+        if(!email){
+          return false;
+        }
+        return validateEmail(email);
+      }
+
+      function isPasswordValid(){
+        const password = form.password().value;
+        if(!password){
+          return false;
+        }
+        return true;
+      }
+
+      function validateEmail(email){
+        return /\S+@\S+\.\S+/.test(email);
+      }
+
+      function login(){
+        firebase.auth().signInWithEmailAndPassword(form.email().value,form.password().value).then(response => {
+          console.log('success', response);
+          window.location.href = "home.html";
+        }).catch(error => {
+          alert(getErrorMessage(error));
+        });
+      }
+
+      function getErrorMessage(error){
+        if(error.code == "auth/user-not-found"){
+          return "Usuário não encontrado.";
+        }else if(error.code == "auth/wrong-password"){
+          return "Senha incorreta.";
+        }
+        return error.message;
+      }
+
+      function signup(){
+        window.location.href = "index.html";
+      }
+
+      const form = {
+        email: () => document.getElementById('email'),
+        password: () => document.getElementById('password'),
+        loginButton: () => document.getElementById('login-button')
+      }
+
     </script>
 
   </body>

@@ -191,6 +191,11 @@ form.sign-in-form {
 .btn:hover {
   background-color: #3A86FF;
 }
+
+#login-button[disabled]{
+  opacity: 0.5;
+}
+
 .panels-container {
   position: absolute;
   height: 100%;
