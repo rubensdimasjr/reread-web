@@ -258,11 +258,16 @@
               });
             }
 
-            function getTotalPontos(){
-              
-            }
+            const novaLista = listaQuestoes.reduce((soma,current) =>{
+              let categoria = current.categoria;
+              let repetido = soma.find(element => element.categoria === categoria)
+              if(repetido) repetido.pontos += current.pontos;
+              else soma.push(current);
 
-            console.log(listaQuestoes);
+              return soma;
+            },[]);
+
+            console.log(novaLista);
             
             
           }
