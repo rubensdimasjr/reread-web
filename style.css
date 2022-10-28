@@ -192,7 +192,7 @@ form.sign-in-form {
   background-color: #8338EC;
 }
 
-#login-button[disabled]{
+.btn[disabled]{
   opacity: 0.5;
 }
 
@@ -214,7 +214,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #8338EC 0%, #8338EC 100%);
+  background-image: linear-gradient(-45deg, #9D61F0 0%, #9D61F0 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
