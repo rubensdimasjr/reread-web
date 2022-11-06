@@ -117,12 +117,17 @@ form.sign-in-form {
   max-width: 380px;
   width: 100%;
   border: 1px solid red;
-  color: red;
-  margin: 10px 0;
   height: 55px;
   border-radius: 55px;
   transition: 0.3s;
   display: none;
+}
+
+.input-field-error p{
+  color: red;
+  display: flex;
+  justify-content: center;
+  padding: .8rem;
 }
 
 .input-field i {

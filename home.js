@@ -19,3 +19,24 @@ function scrollActive(){
 }
 
 window.addEventListener('scroll', scrollActive);
+
+//VERIFICA PERFIL DO USUÁRIO
+firebase.auth().onAuthStateChanged(user => {
+  if(user){
+    findProfile(user);
+  }
+}); 
+
+function findProfile(user){
+  firebase.firestore()
+    .collection('profile')
+    .where('user.uid', '==',user.uid)
+    .get()
+    .then(snapshot => {
+      snapshot.docs.forEach(doc => {
+        if(doc.data().quiz == false){
+          window.location.href = "quiz.html"
+        }
+      });
+    });
+}

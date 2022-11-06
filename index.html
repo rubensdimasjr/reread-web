@@ -17,9 +17,6 @@
         <div class="signin-signup">
           <form class="sign-in-form">
             <h2 class="title">Entrar</h2>
-            <div class="input-field-error">
-              <p>E-mail ou senha estão incorretos!</p>
-            </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="email" id="email" onkeyup="validateFields()" placeholder="E-mail"/>
@@ -32,21 +29,29 @@
             <a href="forgot.html">Esqueci minha senha</a>
             <button type="button" id="login-button" class="btn solid" onclick="login()" disabled>Entrar</button>
           </form>
-          <form action="#" class="sign-up-form">
-            <h2 class="title">Cadastro de Usuário</h2>
+          <form class="sign-up-form">
+            <h2 class="title">Cadastro de Usuário</h2><!-- 
+            <div class="input-field-error" id="error-nome">
+              <p>Nome é obrigatório</p>
+            </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Nome" required />
+              <input type="text" placeholder="Nome" onchange="onChangeNome();" id="registerNome" required />
+            </div> -->
+            <div class="input-field-error" id="error-email">
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="E-mail" required />
+              <input type="email" placeholder="E-mail" onchange="onChangeEmail();" id="registerEmail" required />
+            </div>
+            <div class="input-field-error" id="error-password">
+              <p>Senha é obrigatória</p>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Senha" required />
+              <input type="password" placeholder="Senha" id="registerPassword" onkeyup="onChangePassword()" required />
             </div>
-            <button type="button"  class="btn" onclick="signup()">Cadastrar</button>
+            <button type="button"  class="btn" onclick="signup()" id="registerButton" disabled="true">Cadastrar</button>
           </form>
         </div>
       </div>
@@ -81,85 +86,11 @@
       </div>
     </div>
 
-    <script src="app.js"></script>
-    <script src="validate.js"></script>
-    <script src="loading.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth-compat.js"></script>
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyA6WixYa42PPJTZT-fPWuR_aeJSHnZMNdQ",
-        authDomain: "reread-2aedc.firebaseapp.com",
-        projectId: "reread-2aedc",
-        storageBucket: "reread-2aedc.appspot.com",
-        messagingSenderId: "770467559344",
-        appId: "1:770467559344:web:b959110c6548cf177c4875"
-      };
-      firebase.initializeApp(firebaseConfig);
-
-      function validateFields(){
-        const emailValid = isEmailValid();
-        const passwordValid = isPasswordValid();
-        form.loginButton().disabled = !emailValid || !passwordValid;
-      }
-
-      function isEmailValid(){
-        const email = form.email().value;
-        if(!email){
-          return false;
-        }
-        return validateEmail(email);
-      }
-
-      function isPasswordValid(){
-        const password = form.password().value;
-        if(!password){
-          return false;
-        }
-        return true;
-      }
-
-      function validateEmail(email){
-        return /\S+@\S+\.\S+/.test(email);
-      }
-
-      function login(){
-
-        showLoading();
-
-        firebase.auth().signInWithEmailAndPassword(form.email().value,form.password().value).then(response => {
-          hideLoading();
-          console.log('success', response);
-          window.location.href = "home.html";
-        }).catch(error => {
-          hideLoading();
-          alert(getErrorMessage(error));
-        });
-      }
-
-      function getErrorMessage(error){
-        if(error.code == "auth/user-not-found"){
-          return "Usuário não encontrado.";
-        }else if(error.code == "auth/wrong-password"){
-          return "Senha incorreta.";
-        }
-        return error.message;
-      }
-
-      function signup(){
-
-        showLoading();
-
-        //window.location.href = "index.html";
-      }
-
-      const form = {
-        email: () => document.getElementById('email'),
-        password: () => document.getElementById('password'),
-        loginButton: () => document.getElementById('login-button')
-      }
-
-    </script>
+    <script src="firebase-init.js"></script>
+    <script src="index.js"></script>
+    <script src="loading.js"></script>
   </body>
 
 </html>
