@@ -77,3 +77,7 @@ background: #9D61F0;
   font-weight: 600;
   margin-top:1rem ;
 }
+
+a{
+  text-decoration: none;
+}
