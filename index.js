@@ -5,11 +5,11 @@ const eyeIcon = document.getElementById('eyeIcon');
 const inputPassword = document.getElementById('password');
 const textError = document.createElement("p");
 
-firebase.auth().onAuthStateChanged((user) => {
+/* firebase.auth().onAuthStateChanged((user) => {
   if(user){
-    window.location.href = "home.html";
+    window.location.href = "quiz.html";
   }
-});
+}); */
 
 sign_up_btn.addEventListener("click", () => {
   container.classList.add("sign-up-mode");
@@ -95,6 +95,13 @@ const form = {
 }
 
 //VALIDAÇÃO DE CAMPOS DO REGISTRO
+function onChangeNome() {
+  const nomeRegister = formRegister.nomeRegister().value;
+
+  formRegister.invalidErrorNome().style.display = nomeRegister ? "none" : "block"
+  toggleRegisterButtonDisable();
+}
+
 function onChangeEmail(){
   const emailRegister = formRegister.emailRegister().value;
 
@@ -125,6 +132,10 @@ function isFormValid(){
     return false;
   }
 
+  if(!formRegister.nomeRegister().value){
+    return false;
+  }
+
   if(!formRegister.passwordRegister().value){
     return false;
   }
@@ -133,6 +144,8 @@ function isFormValid(){
 }
 
 const formRegister = {
+  invalidErrorNome: () => document.getElementById("error-nome"),
+  nomeRegister: () => document.getElementById("registerNome"),
   invalidErrorEmail: () => document.getElementById("error-email"),
   emailRegister: () => document.getElementById("registerEmail"),
   invalidErrorPassword: () => document.getElementById("error-password"),
@@ -142,18 +155,42 @@ const formRegister = {
 
 //REGISTRO DE USUÁRIO
 function signup(){
-
   showLoading();
   const email = formRegister.emailRegister().value;
   const password = formRegister.passwordRegister().value;
   firebase.auth().createUserWithEmailAndPassword(
     email,password
-  ).then(() => {
-    hideLoading();
-    window.location.href = "home.html";
+  ).then((response) => {
+    saveUserProfile(response.user.uid);
   }).catch((error) => {
     hideLoading();
     alert(getErrorMessage(error));
   });
+}
 
+function saveUserProfile(uid){
+
+  const user = createProfile(uid);
+
+  firebase.firestore()
+  .collection('profile')
+  .add(user)
+  .then(() => {
+    hideLoading();
+    window.location.href = "quiz.html";
+  })
+  .catch(() => {
+    alert("Não foi possível cadastrar um perfil");
+  })
+}
+
+function createProfile(uid){
+  return {
+    name: formRegister.nomeRegister().value,
+    quiz: false,
+    type: 'user',
+    user: {
+      uid: uid
+    }
+  }
 }
