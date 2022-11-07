@@ -40,3 +40,12 @@ function findProfile(user){
       });
     });
 }
+
+function logout(){
+  firebase.auth().signOut().then(() => {
+    window.location.href = "/";
+  })
+  .catch(() => {
+    alert("Erro ao sair");
+  })
+}
