@@ -8,6 +8,12 @@
 
     <link rel="stylesheet" href="home.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+     <!-- Link Swiper's CSS -->
+     <link
+     rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+   />
+    
 </head>
 <body>
     
@@ -52,6 +58,54 @@
             <h2 class="section__title">
                 Home
             </h2>
+            <!-- <div class="box">
+                <i class='bx bxs-cheese'></i>
+                <p>
+                    categoria
+                </p>
+            </div> -->
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <i class='bx bxs-cheese'></i>
+                    <p>categoria 1</p>
+                </div>
+                <div class="swiper-slide">
+                    <i class='bx bxs-cheese'></i>
+                    <p>categoria 2</p>
+                </div>
+                <div class="swiper-slide">
+                    <i class='bx bxs-cheese'></i>
+                    <p>categoria 3</p>
+                </div>
+                <div class="swiper-slide">
+                    <i class='bx bxs-cheese'></i>
+                    <p>categoria 4</p>
+                </div>
+                <div class="swiper-slide">
+                    <i class='bx bxs-cheese'></i>
+                    <p>categoria 5</p>
+                </div>
+                <div class="swiper-slide">
+                    <i class='bx bxs-cheese'></i>
+                    <p>categoria 6</p>
+                </div>
+                <div class="swiper-slide">
+                    <i class='bx bxs-cheese'></i>
+                    <p>categoria 7</p>
+                </div>
+                <div class="swiper-slide">
+                    <i class='bx bxs-cheese'></i>
+                    <p>categoria 8</p>
+                </div>
+                <div class="swiper-slide">
+                    <i class='bx bxs-cheese'></i>
+                    <p>categoria 9</p>
+                </div>
+                </div>
+                <!-- <div class="swiper-pagination"></div> -->
+            </div>
         </section>
         <section class="container section section__height" id="sobre">
             <h2 class="section__title">
@@ -77,6 +131,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore-compat.js"></script>
     <script src="firebase-init.js"></script>
     <script src="auth-guard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="home.js"></script>
 </body>
 </html>
