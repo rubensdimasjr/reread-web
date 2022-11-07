@@ -5,11 +5,15 @@ const eyeIcon = document.getElementById('eyeIcon');
 const inputPassword = document.getElementById('password');
 const textError = document.createElement("p");
 
-/* firebase.auth().onAuthStateChanged((user) => {
-  if(user){
+firebase.auth().onAuthStateChanged((user) => {
+  firebase.firestore()
+  .collection('profile')
+  .where('user.uid', '==',user.uid)
+  .get()
+  .then(() => {
     window.location.href = "quiz.html";
-  }
-}); */
+  })
+});
 
 sign_up_btn.addEventListener("click", () => {
   container.classList.add("sign-up-mode");
