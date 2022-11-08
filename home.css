@@ -40,6 +40,12 @@ body{
   margin-bottom: 1.5rem;
 }
 
+.section__description{
+  color: #454343;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
 .section__height{
   height: 100vh;
 }
@@ -153,17 +159,22 @@ i.nav__icon{
   .section__title{
     font-size: 1.5rem;
   }
+
+  .swiper-courses{
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (min-width:576px){
   .nav__list{
     justify-content: center;
   }
-  
+
 }
 
 .swiper {
   height: 125px;
+  cursor: pointer;
 }
 
 .swiper-slide {
@@ -202,4 +213,21 @@ i.nav__icon{
 
 .swiper-slide p{
   font-size: 14px;
+}
+
+.swiper-courses{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+  padding: 10px;
+}
+
+.swiper-course-slide{
+  align-self: center;
+  border-radius: 8px;
+  border:3px solid #2196F3;
+  padding: 15px;
+  margin: 5px;
+  margin-bottom: .5rem;
+  font-size: 30px;
+  text-align: center;
 }
