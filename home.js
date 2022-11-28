@@ -42,6 +42,7 @@ window.addEventListener('scroll', scrollActive);
 firebase.auth().onAuthStateChanged(user => {
   if(user){
     findProfile(user);
+    findMyCourses(user);
   }
 }); 
 
@@ -57,6 +58,46 @@ function findProfile(user){
         }
       });
     });
+}
+
+function findMyCourses(user){
+  firebase.firestore()
+    .collection('enrollment')
+    .where('userId','==',user.uid)
+    .get()
+    .then(snapshot => {
+      const result = snapshot.docs.map(doc => ({
+        ...doc.data(),
+        courseId: doc.id
+      }));
+      
+      addCourseToScreen(result);
+
+    })
+    .catch(() => {
+      alert("Não foi possivel encontrar seus cursos.");
+    });
+}
+
+function addCourseToScreen(listaCourses){
+  const swiperCourses = document.querySelector('.swiper-courses');
+
+  listaCourses.forEach((value,key) => {
+    var a = document.createElement("a");
+    var i = document.createElement("i");
+    var p = document.createElement("p");
+    a.style.border = "3px solid #"+listaCourses[key].curso.color;
+    a.href = "curso.html?id="+listaCourses[key].courseId;
+    a.classList.add('swiper-course-slide');
+    i.classList.add('bx');
+    i.classList.add(listaCourses[key].curso.icon);
+    i.style.borderRight = "2px solid #"+listaCourses[key].curso.color;
+    p.innerHTML = listaCourses[key].curso.nome;
+    a.append(i);
+    a.append(p);
+    swiperCourses.appendChild(a);
+  });
+
 }
 
 function logout(){
