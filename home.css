@@ -222,13 +222,25 @@ i.nav__icon{
   padding: 10px;
 }
 
-.swiper-course-slide{
-  align-self: center;
+a.swiper-course-slide{
+  text-decoration: none;
+  color: rgb(75, 75, 75);
   border-radius: 8px;
   border:3px solid #2196F3;
   padding: 15px;
   margin: 5px;
-  margin-bottom: .5rem;
-  font-size: 30px;
+  margin-bottom: .5rem; 
+  display: flex;
+  align-items: center;
+}
+
+.swiper-course-slide i{
+  padding-right: .3em;
+  font-size: 40px;
+  border-right: 2px solid rgb(75, 75, 75);
+}
+
+.swiper-course-slide p{
   text-align: center;
+  padding-left:.5rem ;
 }
