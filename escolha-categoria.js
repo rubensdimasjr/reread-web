@@ -61,7 +61,31 @@ function addResultToScreen(result){
   const card = document.querySelectorAll(".card");
 
   card.forEach((value,key) => {
-    card[key].children[1].innerHTML = result[0].result[key].categoria
+    switch(result[0].result[key].categoria){
+      case 'Cinema/Cultura':
+        var icon = 'fa-image';
+        break;
+      case 'Bem-Estar':
+        var icon = 'fa-hand-holding-heart';
+        break;
+      case 'Tecnologias':
+        var icon = 'fa-microchip';
+        break;
+      case 'Línguas Estrangeiras':
+        var icon = 'fa-language';
+        break;
+      case 'Produção/Ensino':
+        var icon = 'fa-graduation-cap';
+        break;
+      case 'Leitura/Alfabetização':
+        var icon = 'fa-readme';
+        break;
+      case 'Deficiências':
+        var icon = 'fa-wheelchair';
+        break;
+    }
+    card[key].children[0].classList.add(icon);
+    card[key].children[1].innerHTML = result[0].result[key].categoria;
     card[key].href = "cursos.html?categoria="+result[0].result[key].categoria;
   })
 }
