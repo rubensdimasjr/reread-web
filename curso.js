@@ -63,8 +63,12 @@ function addCourseToScreen(curso){
   const description = document.querySelector('.section__description');
   const vagas = document.querySelector('.number__vagas');
 
+  const descricao = curso[0].descricao === null ? '' : '"'+curso[0].descricao+'"';
+
+
+
   title.innerHTML = curso[0].nome;
-  description.innerHTML = '"'+curso[0].descricao+'"';
+  description.innerHTML = descricao;
   vagas.innerHTML = curso[0].vagas;
 
   hideLoading();
