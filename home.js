@@ -68,8 +68,10 @@ function findMyCourses(user){
     .then(snapshot => {
       const result = snapshot.docs.map(doc => ({
         ...doc.data(),
-        courseId: doc.id
+        matricula: doc.id
       }));
+
+      console.log(result)
       
       addCourseToScreen(result);
 
@@ -87,7 +89,7 @@ function addCourseToScreen(listaCourses){
     var i = document.createElement("i");
     var p = document.createElement("p");
     a.style.border = "3px solid #"+listaCourses[key].curso.color;
-    a.href = "curso.html?id="+listaCourses[key].courseId;
+    a.href = "curso.html?id="+listaCourses[key].cursoId;
     a.classList.add('swiper-course-slide');
     i.classList.add('bx');
     i.classList.add(listaCourses[key].curso.icon);

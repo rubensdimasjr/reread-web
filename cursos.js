@@ -18,8 +18,10 @@ function findCourses(categoria){
     .then(snapshot => {
       const cursos = snapshot.docs.map(doc => ({
         ...doc.data(),
-        uid: doc.id
+        cursoId: doc.id
       }))
+
+      console.log(cursos)
 
       if(cursos.length === 0){
         alert("Não foi possivel encontrar cursos com essa categoria!");
@@ -40,7 +42,7 @@ function addResultToScreen(cursos){
   const orderedList = document.querySelector('.courses-container');
   const navbar = document.createElement('div');
   navbar.classList.add('navbar');
-  navbar.innerHTML = "<a href='escolha-categoria.html'>< Voltar</a><a href='home.html'>Pular ></a>";
+  navbar.innerHTML = "<a onclick='window.history.back()'>< Voltar</a><a href='home.html'>Pular ></a>";
 
   orderedList.appendChild(navbar);
   cursos.forEach(curso => {
@@ -64,9 +66,10 @@ function addResultToScreen(cursos){
     categoria.innerHTML = curso.categoria;
     const descricao = document.createElement('h2');
     descricao.innerHTML = curso.descricao;
-    const button = document.createElement('button');
+    const button = document.createElement('a');
     button.classList.add('btn');
     button.innerHTML = "Inscrever"
+    button.setAttribute('href','curso.html?id='+curso.cursoId);
     course_info.appendChild(categoria);
     course_info.appendChild(descricao);
     course_info.appendChild(button);
@@ -75,6 +78,9 @@ function addResultToScreen(cursos){
     course.appendChild(course_info);
 
     orderedList.appendChild(course);
+
   });
+
+
   
 }

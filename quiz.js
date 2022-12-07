@@ -115,7 +115,7 @@ function nextPrev(n) {
     saveResultQuiz(novaLista);
     
   }
-  // Otherwise, display the correct tab:
+
   showTab(currentTab);
 }
 
