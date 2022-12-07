@@ -65,8 +65,6 @@ function addCourseToScreen(curso){
 
   const descricao = curso[0].descricao === null ? '' : '"'+curso[0].descricao+'"';
 
-
-
   title.innerHTML = curso[0].nome;
   description.innerHTML = descricao;
   vagas.innerHTML = curso[0].vagas;
